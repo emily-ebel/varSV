@@ -5,9 +5,9 @@
 ![alt text](https://github.com/emily-ebel/varSV/blob/main/ANC_PB_chr12.png)
 
 <b>1. Define a region or regions to visualize.</b> <br><br>
-Region files are created by you, based on annotated genes in a reference genome. Each chromosome with a region of interest needs its own region file. 
+Region files are created by you, based on annotated genes in a reference genome. Each chromosome with at least one region of interest needs its own region file. The file can contain more than one region from the same chromosome, e.g., telomeric <i>var</i> regions and internal <i>var</i> regions.
 <br><br>For example, [12var.csv] contains all the <i>var</i> genes from chr12 in the 3D7 reference assembly of <i>Plasmodium falciparum</i>. We also included some adjacent, non-<i>var</i> genes in this region. 
-<br><br>Note that the 'start' coordinate must be less than the 'stop' coordinate, but 'orientation' can be + or -. 
+<br><br>Note that the 'start' coordinate must be less than the 'stop' coordinate, but you can still keep track of 'orientation'.
 
 
 <br>
@@ -29,13 +29,13 @@ ncbi-blast+/2.7.1/blastn -query [allvar_seqs_chunks_040721.fasta] -task blastn -
 <br>
 <br>
 
-<b>3. Identify sequences in your DNA of interest that align to your defined regions.</b> 
+<b>3. Identify sequences in your DNA of interest that correspond to your defined regions.</b> 
 
-To do this, first align your DNA of interest to your reference genome. 
+These will be the sequences that you actually visualize. To identify them, first align your DNA of interest to your reference genome. 
  ```
 cat ANC.30kb.fasta.gz | ./minimap2/minimap2 -x map-ont 3D7_PlasmoDB.fasta - > ANC.30kb-3D7REF.paf
 ```
 
-Then, create a masterlist of region coordinates and names. Our example, [chrom_regions_3D7REF], lists all 37 <i>var</i> regions.
+Then, create a masterlist of region coordinates and names. Our example, [chrom_regions_3D7REF], lists all 37 <i>var</i> regions. These are defined more broadly than the gene coordinates within the region files themselves, just in case there are any alignment issues due to repetitive <i>var</i> genes.
 
 Finally, use [assign_reads_regions_paf_edited.R] to assign reads to your defined regions. The output file is [ANC-REF.Chrom-RegionAssignments.csv].
