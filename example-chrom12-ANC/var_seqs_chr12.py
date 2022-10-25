@@ -8,7 +8,7 @@ interstart = 0 # placeholder for start position of intergenic region
 segments = {} 
 
 
-with open("12var_edited.csv","r") as csvfile:
+with open("12var.csv","r") as csvfile:
     reader = csv.reader(csvfile) 
     header = next(reader)
     for row in reader:
@@ -31,7 +31,7 @@ with open("12var_edited.csv","r") as csvfile:
 
 chrom = 0 # placeholder for reference chromosome 
 seq = '' #chrom sequence
-outfile = open("12var_seqs_chunks_edited.fasta","w")
+outfile = open("12var_seqs_chunks.fasta","w")
 targets = ['Pf3D7_12_v3'] # reference chromosome name 
 
 
