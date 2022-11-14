@@ -9,7 +9,7 @@
 
 
 <br><br>
-## Visualizing structural variation on large pieces of DNA
+## Methods: Visualizing structural variation on large pieces of DNA
 
 <b>1. Define a region or regions to visualize.</b> <br><br>
 Region files are based on annotated genes in a reference genome. Each chromosome with at least one region of interest needs its own region file. The file can contain more than one region from the same chromosome, such as telomeric and internal <i>var</i> regions.
@@ -74,4 +74,41 @@ cut -f1-2 ANC.30kb.fasta.fai > ANC.30kb.readlengths.txt
 Once these files are correctly specified in <a href="https://github.com/emily-ebel/varSV/blob/main/varSV.R">varSV.R</a>, run the app. Browse to select the .hit file from step 2. Once the data load, you can click from read to read; adjust the % identity slider; or select a new region from the dropdown menu. You can also save a clean .pdf version of the current image by clicking 'save.'
 
 <br><br>
-## Example SV
+## Example images ## 
+
+<b>Duplication creating chimeric gene</b> <br><br>
+![alt text](https://github.com/emily-ebel/varSV/blob/main/images/duplication-creating-chimera.png)
+<br><br><br>
+
+<b>Telomere replacement</b> <br><br>
+![alt text](https://github.com/emily-ebel/varSV/blob/main/images/telomere-replacement.png)
+Better homology to a second locus was found by BLASTing the corresponding read sequence to the 3D7 reference genome.
+<br><br><br>
+
+<b>Smaller tracts of sequence exchange between two <i>var</i> genes</b> <br><br>
+![alt text](https://github.com/emily-ebel/varSV/blob/main/images/var-chunk-replaced.png)
+Better homology to a second locus was found by BLASTing the corresponding read sequence to the 3D7 reference genome.
+<br><br><br>
+
+<b>Large inverted duplication ("triangle read")</b> <br><br>
+![alt text](https://github.com/emily-ebel/varSV/blob/main/images/triangle.png)
+<br><br><br>
+
+<b>Mis-assigned read (not real structural variation)</b> <br><br>
+![alt text](https://github.com/emily-ebel/varSV/blob/main/images/misassigned-read.png)
+![alt text](https://github.com/emily-ebel/varSV/blob/main/images/reassigned-read.png)
+In all of our samples, part of chr13_telo_2 has been overwritten by part of chr9_telo_1. Since this isn't reflected in the 3D7 reference used to assign reads to loci, this read ends up assigned to chr9_telo_1 even though it also contains sequence from chr13_telo_2. Homology is very poor when the read is visualized with segments from chr9_telo_1, compared to when it's visualized with segments from chr13_telo_2. But when it's re-assigned to the correct region, the breakpoint for the telomere replacement is visible in the middle of PF3D7_1375000.
+<br><br><br>
+
+<b>Small deletion (common Nanopore sequencing error)</b> <br><br>
+![alt text](https://github.com/emily-ebel/varSV/blob/main/images/deletion.png)
+<br><br><br>
+
+
+<b>Repetitive sequence from historic (pre-3D7) duplications</b> <br><br>
+![alt text](https://github.com/emily-ebel/varSV/blob/main/images/distant-homology.png)
+The % identity lever was lowered to see more distant homology.
+<br><br><br>
+
+
+
