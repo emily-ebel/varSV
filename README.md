@@ -2,7 +2,7 @@
 
 <br>
 
-![alt text](https://github.com/emily-ebel/varSV/blob/main/chr10_telo2.png)
+![alt text](https://github.com/emily-ebel/varSV/blob/main/images/chr10_telo2.png)
 <div align="center">
 ^ Four duplicated genes visible on one Nanopore read. ^                           
 </div>
