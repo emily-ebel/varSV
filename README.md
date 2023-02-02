@@ -2,6 +2,15 @@
 
 <br>
 
+
+
+
+The first part of this page gives instructions on how to prepare the data and run the code. The second part has pictures and explanations of the kinds of structural varation we found in the study.
+
+<br>
+
+
+
 ![alt text](https://github.com/emily-ebel/varSV/blob/main/images/chr10_telo2.png)
 <div align="center">
 ^ Four duplicated genes visible on one Nanopore read. ^                           
